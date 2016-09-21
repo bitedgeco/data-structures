@@ -385,6 +385,24 @@ def test_delete_leaf_node_right():
 def test_delete_node_not_in_bst():
     """Return error message when node not in BST."""
     bst = BST([10, 5, 20])
-    with pytest.raises(ValueError) as message:
-        bst.delete(19)
-    assert "Val not in BST" in str(message)
+    assert bst.delete(29) is None
+
+
+def test_delete_node_in_bst_1(bst_test_case_two):
+    """Return error message when node not in BST."""
+    bst_test_case_two.delete(22)
+    assert not bst_test_case_two.contains(22)
+
+
+def test_delete_node_in_bst_2(bst_test_case_two):
+    """Return error message when node not in BST."""
+    bst_test_case_two.delete(37)
+    assert bst_test_case_two._search(25).right.val == 36
+    assert not bst_test_case_two.contains(37)
+
+
+def test_delete_node_in_bst_3():
+    """Return error message when node not in BST."""
+    bst = BST([10, 5, 20, 18])
+    bst.delete(20)
+    assert not bst.contains(20)

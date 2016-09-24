@@ -282,21 +282,25 @@ class BST(object):
 
     def re_balance(self, new_node):
         '''evaluates balance and calls appropreate rotate'''
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
         balance = self.balance()
-        if -2 <= balance <= 2:
+        if -1 <= balance <= 1:
             return
         cur = new_node
         cur_balance = 0
-        while cur_balance:
+        import pdb; pdb.set_trace()
+        while True:
             if -1 <= self.balance(cur) <= 1:
-                cur = cur.parent
+                try:
+                    cur = cur.parent
+                except AttributeError:
+                    break
             else:
-                cur_balance = self.balance(cur)
-        if cur_balance > 0:
-            self.right_rotate(cur)
-        else:
-            self.left_rotate(cur)
+                break
+        # if  self.balance(cur) > 0:
+        self.right_rotate(cur)
+        # else:
+            # self.left_rotate(cur)
 
     def left_rotate(self, cur):
         pass

@@ -89,7 +89,6 @@ import pytest
 #     bst = BST()
 #     assert bst.size() == 0
 
-
 # def test_depth_empty():
 #     '''Test depth empty.'''
 #     bst = BST()

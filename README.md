@@ -53,6 +53,13 @@
 ## Binary Search Tree  
 - http://interactivepython.org/runestone/static/pythonds/Trees/SearchTreeImplementation.html
 
+## Merge Sort
+- Implements a merge sort algorthim using python. 
+- Recusrively splits the list into the smallest chunks and walks back up merging and comparing the lists.
+
+### Citied Sources
+- http://interactivepython.org/courselib/static/pythonds/SortSearch/TheMergeSort.html
+
 ### Singly vs. Doubly Linked Lists  
 - A Singly Linked-List  
   - easier to implement  

@@ -80,6 +80,7 @@ class BST(object):
                 self.length += 1
             else:
                 self.insert(val, node.left)
+        self.re_balance(new_node)
 
     def contains(self, val):
         """Check if value exists in bst."""
@@ -124,13 +125,26 @@ class BST(object):
         """Determine max depth of bst."""
         return self._depth_helper(self.root, 1)
 
-    def balance(self):
+    # def balance(self):
+    #     """Determine balance of bst."""
+    #     if self.root is None:
+    #         return 0
+    #     left_depth = self._depth_helper(self.root.left, 1)
+    #     right_depth = self._depth_helper(self.root.right, 1)
+    #     return left_depth - right_depth
+
+    def balance(self, start=None):
         """Determine balance of bst."""
-        if self.root is None:
-            return 0
-        left_depth = self._depth_helper(self.root.left, 1)
-        right_depth = self._depth_helper(self.root.right, 1)
-        return left_depth - right_depth
+        if start == None:
+            if self.root is None:
+                return 0
+            left_depth = self._depth_helper(self.root.left, 1)
+            right_depth = self._depth_helper(self.root.right, 1)
+            return left_depth - right_depth
+        else:
+            left_depth = self._depth_helper(start.left, 1)
+            right_depth = self._depth_helper(start.right, 1)
+            return left_depth - right_depth
 
     def in_order(self, start=None):
         """Returns values in bst using in-order traversal."""
@@ -218,6 +232,7 @@ class BST(object):
                 pending_list.append(cur.right)
 
     def _search(self, val):
+        '''searches for passed in value in BST'''
         cur = self.root
         if not cur:
             raise ValueError("Val not in BST")
@@ -236,6 +251,7 @@ class BST(object):
                 break
 
     def delete(self, val):
+        '''deleates passed in value from BST'''
         cur = self._search(val)
         if not cur:
             return
@@ -263,3 +279,35 @@ class BST(object):
                     cur._parent.left = replacement
             else:
                 self.root = replacement
+
+    def re_balance(self, new_node):
+        '''evaluates balance and calls appropreate rotate'''
+        # import pdb; pdb.set_trace()
+        balance = self.balance()
+        if -1 <= balance <= 1:
+            return
+        cur = new_node
+        cur_balance = 0
+        import pdb; pdb.set_trace()
+        while True:
+            if -1 <= self.balance(cur) <= 1:
+                try:
+                    cur = cur.parent
+                except AttributeError:
+                    break
+            else:
+                break
+        # if  self.balance(cur) > 0:
+        self.right_rotate(cur)
+        # else:
+            # self.left_rotate(cur)
+
+    def left_rotate(self, cur):
+        pass
+
+    def right_rotate(self, cur):
+        pivot = cur.left
+        pivot.right = cur
+        # self.re_balance() we should call re_balance again until the BST is balance
+
+

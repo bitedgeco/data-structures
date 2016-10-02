@@ -60,6 +60,13 @@
 ### Citied Sources
 - http://interactivepython.org/courselib/static/pythonds/SortSearch/TheMergeSort.html
 
+## Radix sort
+- Implements a radix sort algorthim using python. 
+
+### Cited sources
+- http://www.geekviewpoint.com/python/sorting/radixsort
+
+
 ### Singly vs. Doubly Linked Lists  
 - A Singly Linked-List  
   - easier to implement  

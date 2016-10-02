@@ -1,29 +1,18 @@
-def quicksort(lst):
+ # -*- coding: UTF-8 -*-
+def quicksort(lst, lo, hi):
     '''returns sorted list'''
-    piv = len(lst) // 2
-    small_sub_list = []
-    big_sub_list = []
-    for val in lst:
-        if val < lst[piv]:
-            small_sub_list.append(val)
-        else:
-            big_sub_list.append(val)
-    if len(small_sub_list) > 1:
-        if len(small_sub_list) == 2:
-            if small_sub_list[1] > small_sub_list[0]:
-                small_sub_list[1], small_sub_list[0] = small_sub_list[0], small_sub_list[1]
-        else:
-            quicksort(small_sub_list)
-    if len(big_sub_list) > 1:
-        if len(big_sub_list) == 2:
-            if big_sub_list[1] < big_sub_list[0]:
-                big_sub_list[1], big_sub_list[0] = big_sub_list[0], big_sub_list[1]
-        else:
-            quicksort(big_sub_list)
-    small_sub_list.extend(big_sub_list)
-    # import pdb; pdb.set_trace()
+    if lo  < hi:
+        part = partition(lst, lo, hi)
+        quicksort(lst, lo, part -1)
+        quicksort(lst, part +1, hi)
 
-    return small_sub_list
-
-
-# if __name__ == ‘__main__’:
+def partition(lst, lo, hi):
+    """Partition the list."""
+    pivot = lst[hi]
+    swap = lo
+    for item in range(lo, hi):
+        if lst[item] <= pivot:
+            lst[swap], lst[item] = lst[item], lst[swap]
+            swap += 1
+    lst[swap], lst[hi] = lst[hi], lst[swap]
+    return swap

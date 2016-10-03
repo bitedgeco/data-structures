@@ -6,7 +6,7 @@ def quicksort(lst, lo, hi):
     if lo < hi:
         part = partition(lst, lo, hi)
         quicksort(lst, lo, part - 1)
-        quicksort(lst, part  1, hi)
+        quicksort(lst, part + 1, hi)
 
 
 def partition(lst, lo, hi):
@@ -27,11 +27,11 @@ if __name__ == "__main__":
 
     def quicksort_ordered_list():
         '''call radax on ordered list'''
-        quicksort(ordered_list)
+        quicksort(ordered_list, 0, 6)
 
     def quicksort_reversed_list():
         '''call radax on reveresd list'''
-        quicksort(reversed_list)
+        quicksort(reversed_list, 0, 6)
 
     print('timing quicksort 1000 times on ordered list:', timeit.timeit('quicksort_ordered_list',
      setup='from __main__ import quicksort_ordered_list', number=1000))

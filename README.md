@@ -60,6 +60,20 @@
 ### Citied Sources
 - http://interactivepython.org/courselib/static/pythonds/SortSearch/TheMergeSort.html
 
+## QuickSort
+- Implements quick sort algorthim using python.
+- Does sorting in place setting the pivot as hi. 
+
+### Cited Sources
+https://en.wikipedia.org/wiki/Quicksort
+
+## Radix sort
+- Implements a radix sort algorthim using python. 
+
+### Cited sources
+- http://www.geekviewpoint.com/python/sorting/radixsort
+
+
 ### Singly vs. Doubly Linked Lists  
 - A Singly Linked-List  
   - easier to implement  

@@ -39,5 +39,13 @@ class Hash(object):
     
     def set_fnv(self, key, value):
         """Set key value using fnv."""
-        slot = self._hash_fnv(key):
+        slot = self._hash_fnv(key)
         self.table[slot].append((key, value))
+        
+    def get_fnv(self, key):
+        """Get value from key using fnv hash."""
+        hashed = self._hash_fnv(key)
+        for tup in self.table[hashed]:
+            if tup[0] == key:
+                return tup[1]
+    

@@ -30,10 +30,14 @@ class Hash(object):
         slot = self._hash(key)
         self.table[slot].append(pair)
 
-    # def _hash_fnv(self, key):
-    #     """Use FNV to hash key."""
-    #     hash = 2166136261
-    #     for char in key:
-    #         hash = (hash * 16777619) ^ ord(char)
-    #     return hash % self.size
+    def _hash_fnv(self, key):
+        """Use FNV to hash key."""
+        hash = 2166136261
+        for char in key:
+            hash = (hash * 16777619) ^ ord(char)
+        return hash % self.size
     
+    def set_fnv(self, key, value):
+        """Set key value using fnv."""
+        slot = self._hash_fnv(key):
+        self.table[slot].append((key, value))

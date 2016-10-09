@@ -29,3 +29,9 @@ def test_words_fnv():
         table.set_fnv(word, word)
     for word in open(WORDS):
         assert table.get_fnv(word)
+
+def test_othash():
+    """Test othash."""
+    table = Hash(10)
+    table.otset('blue', 10)
+    assert table.otget('blue') == 10

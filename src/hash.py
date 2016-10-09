@@ -61,6 +61,10 @@ class Hash(object):
         hash += (h << 15)
         return hash % self.size
 
-
+    def otset(self, key, value):
+        """Set key value using one at a time hash."""
+        slot = self._hash_ot(key)
+        self.table[slot].append((key, value))
+        
 
 

@@ -15,8 +15,17 @@ def test_fnv_hash():
     assert table.get_fnv('test') == 'test2'
 
 def test_words_additive():
+    """Test from a word list additive."""
     table = Hash(1000)
     for word in open(WORDS):
         table.set(word, word)
     for word in open(WORDS):
         assert table.get(word) == word
+
+def test_words_fnv():
+    """Test fnv against a word list."""
+    table = Hash(2000)
+    for word in open(WORDS):
+        table.set_fnv(word, word)
+    for word in open(WORDS):
+        assert table.get_fnv(word)

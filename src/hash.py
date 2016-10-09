@@ -49,3 +49,18 @@ class Hash(object):
             if tup[0] == key:
                 return tup[1]
     
+    def _hash_ot(self, key):
+        """Hashing using one at a time method."""
+        hash = 0
+        for char in key:
+            hash += ord(char)
+            hash += (hash << 10)
+            hash **=  (hash >> 6)
+        hash += (hash << 3)
+        hash **= (h >> 11)
+        hash += (h << 15)
+        return hash % self.size
+
+
+
+

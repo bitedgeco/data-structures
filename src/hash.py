@@ -54,11 +54,11 @@ class Hash(object):
         hash = 0
         for char in key:
             hash += ord(char)
-            hash += (hash << 10)
-            hash **=  (hash >> 6)
-        hash += (hash << 3)
-        hash **= (h >> 11)
-        hash += (h << 15)
+            hash +=  (hash << 10)
+            hash ^= (hash >> 6)
+        hash +=  (hash << 3)  
+        hash ^= (hash >> 11)
+        hash += (hash << 15 )
         return hash % self.size
 
     def otset(self, key, value):
@@ -66,5 +66,12 @@ class Hash(object):
         slot = self._hash_ot(key)
         self.table[slot].append((key, value))
         
+    def otget(self, key):
+        """Get value from an ot hashed table."""
+        hashed = self._hash_ot(key)
+        for tup in self.table[hashed]:
+            if tup[0] == key:
+                return tup[1]
+
 
 

@@ -63,7 +63,6 @@
 ## QuickSort
 - Implements quick sort algorthim using python.
 - Does sorting in place setting the pivot as hi. 
-
 ### Cited Sources
 https://en.wikipedia.org/wiki/Quicksort
 
@@ -73,6 +72,15 @@ https://en.wikipedia.org/wiki/Quicksort
 ### Cited sources
 - http://www.geekviewpoint.com/python/sorting/radixsort
 
+## Hash Table
+- Implements basic additive hashing, FNV hashing, and One at a Time hashing. 
+- Methods for getting a value from a key, setting a key value pair. 
+
+### Cited Sources
+- http://www.eternallyconfuzzled.com/tuts/algorithms/jsw_tut_hashing.aspx
+- Used for learning about different hash methods. 
+- Talked with David Smith and looked at their repo for implementing openWords for loop
+- on one line. 
 
 ### Singly vs. Doubly Linked Lists  
 - A Singly Linked-List  

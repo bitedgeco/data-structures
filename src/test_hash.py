@@ -35,3 +35,11 @@ def test_othash():
     table = Hash(10)
     table.otset('blue', 10)
     assert table.otget('blue') == 10
+
+def test_ot_words():
+    """Test one time hash with words list."""
+    table = Hash(1500)
+    for word in open(WORDS):
+        table.otset(word, word)
+    for word in open(WORDS):
+        assert table.otget(word) == word

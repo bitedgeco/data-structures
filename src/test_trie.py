@@ -3,7 +3,7 @@ def test_trie_insert():
     from trie import Trie
     trie = Trie()
     trie.insert('as')
-    assert trie._trie == {'a':{'s':{'$':'$'}}}
+    assert trie._trie == {'a': {'s': {'$': '$'}}}
 
 
 def test_simple_contains():
@@ -20,3 +20,14 @@ def test_simple_contains_false():
     trie = Trie()
     trie.insert('as')
     assert trie.contains('f') is False
+
+
+def test_trie_traversal():
+    """Test a simple trie for traversal."""
+    from trie import Trie
+    trie = Trie()
+    trie.insert('for')
+    trie.insert('forest')
+    trie.insert('fun')
+    assert list(trie.traversal(trie._trie)) == ['for', 'forest', 'fun']
+

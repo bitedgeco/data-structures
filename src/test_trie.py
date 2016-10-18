@@ -31,3 +31,17 @@ def test_trie_traversal():
     trie.insert('fun')
     assert list(trie.traversal(trie._trie)) == ['for', 'forest', 'fun']
 
+
+def test_trie_single():
+    """Test trie with a single insert."""
+    from trie import Trie
+    trie = Trie()
+    trie.insert('token')
+    assert list(trie.traversal(trie._trie)) == ['token']
+
+
+def test_trie_empty():
+    """Test trie with an empty trie."""
+    from trie import Trie
+    trie = Trie()
+    assert list(trie.traversal(trie._trie)) == []

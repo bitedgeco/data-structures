@@ -45,3 +45,47 @@ def test_trie_empty():
     from trie import Trie
     trie = Trie()
     assert list(trie.traversal(trie._trie)) == []
+
+
+def test_trie_big_list():
+    """Test trie on a bigger list."""
+    from trie import Trie
+    trie = Trie()
+    trie.insert('a')
+    trie.insert('ab')
+    trie.insert('abs')
+    trie.insert('age')
+    trie.insert('ages')
+    trie.insert('bag')
+    trie.insert('baggage')
+    trie.insert('bags')
+    assert 'age' in list(trie.traversal(trie._trie))
+
+
+def test_trie_big_list2():
+    """Test trie on a bigger list part 2."""
+    from trie import Trie
+    trie = Trie()
+    trie.insert('a')
+    trie.insert('ab')
+    trie.insert('abs')
+    trie.insert('age')
+    trie.insert('ages')
+    trie.insert('bag')
+    trie.insert('baggage')
+    trie.insert('bags')
+    assert 'baggage' in list(trie.traversal(trie._trie))
+
+def test_len_big_list():
+    """Test trie on a bigger list part 2."""
+    from trie import Trie
+    trie = Trie()
+    trie.insert('a')
+    trie.insert('ab')
+    trie.insert('abs')
+    trie.insert('age')
+    trie.insert('ages')
+    trie.insert('bag')
+    trie.insert('baggage')
+    trie.insert('bags')
+    assert len(list(trie.traversal(trie._trie))) == 8
